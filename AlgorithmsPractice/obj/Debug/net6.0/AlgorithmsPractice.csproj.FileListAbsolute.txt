@@ -1,0 +1,15 @@
+D:\Code\AlgorithmsPractice\bin\Debug\net6.0\AlgorithmsPractice.exe
+D:\Code\AlgorithmsPractice\bin\Debug\net6.0\AlgorithmsPractice.deps.json
+D:\Code\AlgorithmsPractice\bin\Debug\net6.0\AlgorithmsPractice.runtimeconfig.json
+D:\Code\AlgorithmsPractice\bin\Debug\net6.0\AlgorithmsPractice.dll
+D:\Code\AlgorithmsPractice\bin\Debug\net6.0\ref\AlgorithmsPractice.dll
+D:\Code\AlgorithmsPractice\bin\Debug\net6.0\AlgorithmsPractice.pdb
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.csproj.AssemblyReference.cache
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.AssemblyInfoInputs.cache
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.AssemblyInfo.cs
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.csproj.CoreCompileInputs.cache
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.dll
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\ref\AlgorithmsPractice.dll
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.pdb
+D:\Code\AlgorithmsPractice\obj\Debug\net6.0\AlgorithmsPractice.genruntimeconfig.cache
