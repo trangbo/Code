@@ -1,0 +1,15 @@
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.csproj.AssemblyReference.cache
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.GeneratedMSBuildEditorConfig.editorconfig
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.AssemblyInfoInputs.cache
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.AssemblyInfo.cs
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.csproj.CoreCompileInputs.cache
+D:\Code\Algorithms-Exercises\bin\Debug\net6.0\Algorithms-Exercises.exe
+D:\Code\Algorithms-Exercises\bin\Debug\net6.0\Algorithms-Exercises.deps.json
+D:\Code\Algorithms-Exercises\bin\Debug\net6.0\Algorithms-Exercises.runtimeconfig.json
+D:\Code\Algorithms-Exercises\bin\Debug\net6.0\Algorithms-Exercises.dll
+D:\Code\Algorithms-Exercises\bin\Debug\net6.0\ref\Algorithms-Exercises.dll
+D:\Code\Algorithms-Exercises\bin\Debug\net6.0\Algorithms-Exercises.pdb
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.dll
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\ref\Algorithms-Exercises.dll
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.pdb
+D:\Code\Algorithms-Exercises\obj\Debug\net6.0\Algorithms-Exercises.genruntimeconfig.cache
