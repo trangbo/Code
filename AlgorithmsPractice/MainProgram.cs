@@ -6,7 +6,7 @@ namespace AlgorithmsPractice
     {
         static void Main()
         {
-            WriteLine(IntegerDivide.Divide(8, 9));
+            WriteLine(BinaryAddition.AddBinary("1", "1010"));
         }
     }
 }

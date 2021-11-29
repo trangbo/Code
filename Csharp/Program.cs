@@ -1,5 +1,4 @@
 ﻿using static System.Console;
-using static Csharp.A;
 
 namespace Csharp
 {
@@ -7,37 +6,24 @@ namespace Csharp
     {
         static void Main()
         {
-            A c = new A();
-            WriteLine(c.MyValue);
-
-            c.MyValue = 20;
-            WriteLine(c.MyValue);
-            A.
-            TheRealValue3
+           var v1 = new RandomNumberclass();
+           var v2 = new RandomNumberclass { X = 3 };
         }
     }
-    class A
-    {
-        private int theRealValue = 10;  //Camel
+    
+   class RandomNumberclass
+   {
+       private static Random RandomKey;
+       public int X = 2;
 
-        public int TheReadlValue // Pascal
-        {
-            set { theRealValue = value > 100 ? 100 : value; }
-            get { return theRealValue; }
-        }
+       static RandomNumberclass()
+       {
+           RandomKey = new Random();
+       }
 
-        private int _theRealValue2;  //underline with Camel
-
-        public int TheRealValue2
-        {
-             set => _theRealValue2 = value > 0 ? 1 : 0;
-             get => _theRealValue2;
-        }
-
-        public static int TheRealValue3
-        {
-            set; get;
-        }
-    }
-
+       public int GetRandomNumber()
+       {
+           return RandomKey.Next();
+       }
+   }
 }

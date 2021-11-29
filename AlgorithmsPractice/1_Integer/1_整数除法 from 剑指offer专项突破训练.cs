@@ -28,8 +28,6 @@
         
 */
 
-using System;
-
 namespace AlgorithmsPractice
 {
     static class IntegerDivide
