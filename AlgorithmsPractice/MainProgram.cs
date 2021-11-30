@@ -6,7 +6,12 @@ namespace AlgorithmsPractice
     {
         static void Main()
         {
-            WriteLine(BinaryAddition.AddBinary("1", "1010"));
+            var result = AlgorithmBo.CountBitsB(5);
+
+            foreach (var i in result)
+            {
+                WriteLine(i);
+            }
         }
     }
 }
