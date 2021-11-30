@@ -30,53 +30,56 @@
 
 namespace AlgorithmsPractice
 {
-    static class IntegerDivide
+    static partial class AlgorithmBo
     {
         public static int Divide(int dividend, int divisor)
         {
-            if (dividend == Int32.MinValue && divisor == -1)
+            if (dividend == Int32.MinValue && divisor == -1)    // 首先判断是否为溢出情况（经过上面分析只有一种情况）
             {
-                return Int32.MaxValue;
+                return Int32.MaxValue;  // 如果是，则结果为Int32最大值
             }
 
-            int negative = 2;
+            int negative = 2;   // 负数指示，如果两个都为正或负，则negative为0或2，最终结果也为正；如果一个为正一个为负，则negative为1，最终结果也为负
 
-            if (dividend > 0)
+            if (dividend > 0)   // 判断被除数是否为正，如果是，negative负数指示减1，并且将正数转化为负数（根据上面分析，为避免溢出。需要把所有转化为负数去计算）
             {
                 negative--;
                 dividend = -dividend;
             }
 
-            if (divisor > 0)
+            if (divisor > 0)    // 同理判断除数
             {
                 negative--;
                 divisor = -divisor;
             }
 
-            int result = DivideCore(dividend, divisor);
+            int result = DivideCore(dividend, divisor); // 调用核心方法
 
-            return negative == 1 ? -result : result;
+            return negative == 1 ? -result : result;    // 根据negative负数指示，决定是否对结果取负数
         }
 
         private static int DivideCore(int dividend, int divisor)
         {
-            int result = 0;
+            int result = 0; // 初始化result为0，当被除数绝对值小于除数绝对值时也适用
 
-            while (dividend <= divisor)
+            // 外循环复杂度可以看作1，当被除数为n，除数为1
+            while (dividend <= divisor) // 全为负数，需要反向思考 15 > 2, -15 < -2，并允许==情况
             {
-                int value = divisor, quotient = 1;
+                int value = divisor, quotient = 1;  // 声明并初始化当前循环value-除数值，quotient-商-至少为1
                 
-                while (value >= 0xc0000000 && dividend <= value + value)
+                // 进入当前循环的比较，每一次都是除数的2^k(k=1,2,3)倍数
+                // 因为题目不让用“/”，为避免溢出Int32，-2^31的一半是-2^30 == 0xc0000000
+                while (value >= 0xc0000000 && dividend <= value + value)   // 内循环时间复杂度为O(logn)，当被除数为n，除数为1
                 {
-                    quotient += quotient;
-                    value += value;
+                    quotient += quotient;   // 每进行一次，商也呈2^k(k=1,2,3),倍数增长
+                    value += value; // 每进行一次，value也呈2^k(k=1,2,3),倍数增长
                 }
 
-                result += quotient;
-                dividend -= value;
+                result += quotient; // 比较循环结束后，将当前主循环的result更新
+                dividend -= value;  // 被除数变为减去value的大小，进入下一次主循环，直到被除数绝对值小于除数绝对值
             }
 
-            return result;
+            return result;  // 返回最终result
         }
     }
 }

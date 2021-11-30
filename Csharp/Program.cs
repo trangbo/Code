@@ -6,24 +6,50 @@ namespace Csharp
     {
         static void Main()
         {
-           var v1 = new RandomNumberclass();
-           var v2 = new RandomNumberclass { X = 3 };
+            var test = new RandomNumberclass();
+
+            test[1] = "0";
+
+            WriteLine(test[0]);
         }
     }
     
    class RandomNumberclass
    {
-       private static Random RandomKey;
-       public int X = 2;
+        public string LastName;
+        private string Firstname;
+        public string CityofBirth;
 
-       static RandomNumberclass()
-       {
-           RandomKey = new Random();
-       }
+        public string this[int index]
+        {
+            set
+            {
+                switch (index)
+                {
+                    case 0: LastName = value;
+                        break;
+                    case 1: Firstname = value;
+                        break;
+                    case 2: CityofBirth = value;
+                        break;
+                    
+                    default:
+                        throw new ArgumentOutOfRangeException("index");
+                }
+            }
 
-       public int GetRandomNumber()
-       {
-           return RandomKey.Next();
-       }
+            get
+            {
+                switch (index)
+                {
+                    case 0: return LastName;
+                    case 1: return Firstname;
+                    case 2: return CityofBirth;
+
+                    default:
+                        throw new ArgumentOutOfRangeException("index");
+                }
+            }    
+        }
    }
 }
