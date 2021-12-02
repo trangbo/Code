@@ -6,12 +6,8 @@ namespace AlgorithmsPractice
     {
         static void Main()
         {
-            var result = AlgorithmBo.CountBitsB(5);
-
-            foreach (var i in result)
-            {
-                WriteLine(i);
-            }
+            var array = new string[] {"abc", "abd", "iopppppp", "ujhuhub", "m"};
+            WriteLine(AlgorithmBo.MaxProduct(array));
         }
     }
 }
