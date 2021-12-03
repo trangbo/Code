@@ -6,8 +6,8 @@ namespace AlgorithmsPractice
     {
         static void Main()
         {
-            var array = new string[] {"abc", "abd", "iopppppp", "ujhuhub", "m"};
-            WriteLine(AlgorithmBo.MaxProduct(array));
+            var array = new int[] {5,1,4,3};
+            WriteLine(AlgorithmBo.MinSubArrayLen(7, array));
         }
     }
 }
