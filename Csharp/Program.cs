@@ -6,50 +6,30 @@ namespace Csharp
     {
         static void Main()
         {
-            var test = new RandomNumberclass();
 
-            test[1] = "0";
 
-            WriteLine(test[0]);
         }
     }
     
-   class RandomNumberclass
+   sealed class MyData
    {
-        public string LastName;
-        private string Firstname;
-        public string CityofBirth;
+       private double D1, D2, D3;
 
-        public string this[int index]
-        {
-            set
-            {
-                switch (index)
-                {
-                    case 0: LastName = value;
-                        break;
-                    case 1: Firstname = value;
-                        break;
-                    case 2: CityofBirth = value;
-                        break;
-                    
-                    default:
-                        throw new ArgumentOutOfRangeException("index");
-                }
-            }
+       public MyData(double d1, double d2, double d3)
+       {
+           D1 = d1;
+           D2 = d2;
+           D3 = d3;
+       }
 
-            get
-            {
-                switch (index)
-                {
-                    case 0: return LastName;
-                    case 1: return Firstname;
-                    case 2: return CityofBirth;
+       public double Sum() { return D1 + D2 + D3; }
+   }
 
-                    default:
-                        throw new ArgumentOutOfRangeException("index");
-                }
-            }    
-        }
+   static class ExtendMyData
+   {
+       public static double Average(this MyData md)
+       {
+           return md.Sum() / 3;
+       }
    }
 }
