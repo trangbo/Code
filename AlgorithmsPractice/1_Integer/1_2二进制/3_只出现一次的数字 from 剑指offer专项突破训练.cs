@@ -30,7 +30,7 @@ namespace AlgorithmsPractice
 {
     static partial class AlgorithmBo
     {
-        public static int SingleNumber(int[] nums)
+        static internal int SingleNumber(int[] nums)
         {
             var bitSums = new int[32];  // 基于Int32的长度创建位数组
 

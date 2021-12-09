@@ -32,7 +32,7 @@ namespace AlgorithmsPractice
 {
     static partial class AlgorithmBo
     {
-        public static int Divide(int dividend, int divisor)
+        static internal int Divide(int dividend, int divisor)
         {
             if (dividend == Int32.MinValue && divisor == -1)    // 首先判断是否为溢出情况（经过上面分析只有一种情况）
             {

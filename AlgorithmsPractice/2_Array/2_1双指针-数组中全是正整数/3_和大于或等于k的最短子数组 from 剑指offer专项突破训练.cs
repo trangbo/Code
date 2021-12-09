@@ -25,7 +25,7 @@ namespace AlgorithmsPractice
     {
         // 虽然有两个嵌套循环，假设数组长度为n，两个循环中，left和right都只是只增加不减少，right从0到n-1，left最多0到n-1
         // 总的执行次数和时间复杂度还是O(n)
-        static public int MinSubArrayLen(int k, int[] nums)
+        static internal int MinSubArrayLen(int k, int[] nums)
         {
             int left = 0, sum = 0, minLength = Int32.MaxValue;  // 定义左指针，子数组之和，将长度定义为Int32最大值
 

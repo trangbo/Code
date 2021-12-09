@@ -21,7 +21,7 @@ namespace AlgorithmsPractice
     {
         // 只需要遍历一遍数组，时间复杂度为O(n)，使用一个哈希表存储数字之间的和，需要O(n)的辅助空间
         // 整个算法都运用了第二次利用第一次的值，第三次利用第二次的值，第四次利用第三次的值达到最小时间复杂度的目的
-        static public int SubArraySum(int[] nums, int k)
+        static internal int SubArraySum(int[] nums, int k)
         {
             var sumToCount = new Dictionary<int, int>();    // 创建一个哈希表Dictionary，相当于Java HashMap
             sumToCount.Add(0, 1);   // 初始值（判定）增加，Key为0，Value为1，当key(sum-k)为0时，说明当前num的连续子数组满足题目条件
@@ -34,7 +34,7 @@ namespace AlgorithmsPractice
                 sumToCount.Add(sum, sumToCount.GetValueOrDefault(sum, 0) + 1);  // 然后把当前和sum作为key，然后对于value，首先获取之前是否存在当前sum作为key的value,然后再加1
             }                                                                   // 因为0和负数，所以当sum一样时，举例可以由0或者-1，1两种情况，那么当sum-k等于这个和时，相应的就有两种不同的子数组
             
-            return count;
+            return count; 
         }
     }
 }

@@ -17,7 +17,7 @@ namespace AlgorithmsPractice
     static partial class AlgorithmBo
     {
         // 复杂度还是O(n)，P1P2一直是增加状态，与上一题一样
-        static public int NumSubArrayProductLessThanK(int[] nums, int k)
+        static internal int NumSubArrayProductLessThanK(int[] nums, int k)
         {
             long product = 1;   // 乘积初始值，这里考虑到了Int32乘积溢出的情况，所以设置了Int64 long型
             int left = 0, count = 0;    // 左指针P1指向下标0的数字，count为计算数组的个数

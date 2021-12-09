@@ -16,7 +16,7 @@ namespace AlgorithmsPractice
 {
     static partial class AlgorithmBo
     {
-        public static List<List<int>> ThreeSum(int[] nums)
+        static internal List<List<int>> ThreeSum(int[] nums)
         {
             var result = new List<List<int>>(); // 新建List，里面存储那些三元组
 

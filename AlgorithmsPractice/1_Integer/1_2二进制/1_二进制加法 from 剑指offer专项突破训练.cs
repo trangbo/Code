@@ -18,7 +18,7 @@ namespace AlgorithmsPractice
 {
     static partial class AlgorithmBo
     {
-        public static string BinaryAddition(string a, string b)
+        static internal string BinaryAddition(string a, string b)
         {
             var result = new StringBuilder();   
             int i = a.Length - 1, j = b.Length - 1, carry = 0;  // 此时i j分别代表最高位，carry为是否需要进位（0不进位）

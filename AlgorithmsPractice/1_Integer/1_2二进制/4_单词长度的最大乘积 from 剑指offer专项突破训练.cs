@@ -27,7 +27,7 @@ namespace AlgorithmsPractice
     static partial class AlgorithmBo
     {
         // 总体时间复杂度为O(nk+n^2) 如果words长度为n，空间复杂度为O(n)
-        public static int MaxProductA(string[] words)
+        static internal int MaxProductA(string[] words)
         {
             var length = words.Length;
             var flags = new bool[length, 26]; // 创建一个布尔二维数组模拟哈希表，一维长度为输入字符串数组长度，二维长度为26个小写字母

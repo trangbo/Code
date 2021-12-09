@@ -35,7 +35,7 @@ namespace AlgorithmsPractice
     static partial class AlgorithmBo
     {
         // 思路a, little bad, O(nk)
-        public static int[] CountBitsA(int num)
+        static internal int[] CountBitsA(int num)
         {
             var result = new int[num + 1];  // 建立包含从0到n的数组，所以长度是n+1
 

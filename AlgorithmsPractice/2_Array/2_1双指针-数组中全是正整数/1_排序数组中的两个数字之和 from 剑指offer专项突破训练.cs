@@ -20,7 +20,7 @@ namespace AlgorithmsPractice
     static partial class AlgorithmBo
     {
         // 时间复杂度为O(n)，循环执行最多次数最多等于数组长度
-        public static int[] TwoSum(int[] numbers, int target)
+        static internal int[] TwoSum(int[] numbers, int target)
         {
             int i = 0, j = numbers.Length - 1;  // 双指针i，j
 
