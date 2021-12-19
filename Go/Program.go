@@ -1,41 +1,49 @@
+// Lissajous generates GIF animations of random Lissajous figures
 package main
 
 import (
-	"bufio"
-	"fmt"
+	"image"
+	"image/color"
+	"image/gif"
+	"io"
+	"math"
+	"math/rand"
 	"os"
 )
 
+var palette = []color.Color{color.White, color.Black}
+
+const (
+	whiteIndex = 0 // first color in palette
+	blackIndex = 1 // next color in palette
+)
+
 func main() {
-	counts := make(map[string]int)
-	countsFiles := make(map[string]string)
-	files := os.Args[1:]
-	if len(files) == 0 {
-		countLines(os.Stdin, counts, countsFiles)
-	} else {
-		for _, arg := range files {
-			f, err := os.Open(arg)
-			if err != nil {
-				fmt.Fprintf(os.Stderr, "dup2: %v\n", err)
-				continue
-			}
-			countLines(f, counts, countsFiles)
-			f.Close()
-		}
-	}
-	for line, n := range counts {
-		if n > 1 {
-			fmt.Printf("%d\t%s\t%s\n", n, line, countsFiles[line])
-		}
-	}
+	lissajous(os.Stdout)
 }
-func countLines(f *os.File, counts map[string]int, countsFiles map[string]string) {
-	input := bufio.NewScanner(f)
-	for input.Scan() {
-		counts[input.Text()]++
-		if counts[input.Text()] > 1 {
-			countsFiles[input.Text()] = f.Name()
+
+func lissajous(out io.Writer) {
+	const (
+		cycles = 5	// number of complete x oscillator revolutions
+		res = 0.001	// angular resolution
+		size = 100	// image canvas covers [-size..+size]
+		nframes = 64 // number of animation frames
+		delay = 8 // delay between frames in 10ms units
+	)
+	freq := rand.Float64() * 3.0 // relative frequency of y oscillator
+	anim := gif.GIF{LoopCount: nframes}
+	phase := 0.0 // phase differnce
+	for i := 0; i < nframes; i++ {
+		rect := image.Rect(0, 0, 2*size+1, 2*size+1)
+		img := image.NewPaletted(rect, palette)
+		for t := 0.0; t < cycles*2*math.Pi; t += res {
+			x := math.Sin(t)
+			y := math.Sin(t*freq + phase)
+			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5), blackIndex)
 		}
+		phase += 0.1
+		anim.Delay = append(anim.Delay, delay)
+		anim.Image = append(anim.Image, img)
 	}
-	// NOTE: ignoring potential errors from input.Err()
+	gif.EncodeAll(out, &anim)	// NOTE: ignoring encoding errors
 }

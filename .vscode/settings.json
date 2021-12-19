@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "new": "cpp"
+        "new": "cpp",
+        "vector": "cpp",
+        "stack": "cpp",
+        "algorithm": "cpp"
     }
 }

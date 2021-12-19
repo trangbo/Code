@@ -181,3 +181,120 @@ double read_and_sum(int s)
 
     return sum;
 }
+
+enum Type {ptr, num}; // a Type can hold values ptr and num
+
+struct Entry {
+    string name; // string is a standard-library type
+    Type t;
+    Node* p; // use p if t==ptr
+    int i; // use i if t==num
+};
+
+void f(Entry* pe)
+{
+    if (pe->t == num)
+        cout << pe->i;
+}
+
+union Value {
+    Node* p;
+    int i;
+};
+
+struct Entry {
+    string name;
+    Type t;
+    Value v; // use v.p if t==ptr; usi v.i if t==num
+};
+
+void f(Entry* pe) {
+    if (pe->t == num)
+        cout << pe->v.i;
+}
+
+struct Entry {
+    string name;
+    variant<Node*, int> v;
+};
+
+void f(Entry* pe)
+{
+    if (holds_alternative<int>(pe->v))
+        cout << get<int>(pe->v);
+}
+
+enum class Color { red, blue, green };
+enum class Traffic_light { green, yellow, red };
+
+Color col = Color::red;
+Traffic_light light = Traffic_light::red;
+
+Color x = red;  // error: which red?
+Color y = Traffic_light::red; // error: that red is not a Color
+Color z = Color::red;   // OK
+
+int i = Color::red; // error: Color::red is not an int
+Color c = 2; // initalization error: 2 is no a Color
+
+Color x = Color {5}; // OK, but verbose
+Color y {6}; // also OK
+
+Traffic_light& operator++(Traffic_light& t) // prefix increment: ++
+{
+    switch (t) {
+        case Traffic_light::green:  return t=Traffic_light::yellow;
+        case Traffic_light::yellow: return t=Traffic_light::red;
+        case Traffic_light::red: return t=Traffic_light::green;
+    }
+}
+
+Traffic_light next = ++light; // next becomes Traffic_light::green
+
+enum Color { red, green, blue};
+int col = green;
+
+double sqrt(double); // the square root function takes a double and return sa doble
+
+class Vector {
+public:
+    Vector(int s);
+    double& operator[](int i);
+    int size();
+private:
+    double* elem; // elem points to an array of sz doubles
+    int sz;
+};
+
+double sqrt(double d)
+{
+    // algorithm...
+}
+
+Vector::Vector(int s)   // definition of the constructor
+    :elem{new double[s]}, sz{s} // initialize members
+{
+}
+
+double& Vector::operator[](int i)   // definition if subscripting
+{
+    return elem[i];
+}
+
+int Vector::size()  // definition of size()
+{
+    return sz;
+}
+
+// Vector.h
+
+#include "Vector.h" // get Vector's interface
+#include <cmath>    // get the standard-library math function inteface 
+
+double sqrt_sum(Vector& v)
+{
+    double sum = 0;
+    for (int i = 0; i != v.size(); ++i)
+        sum += std::sqrt(v[i]);
+    return sum; 
+}
