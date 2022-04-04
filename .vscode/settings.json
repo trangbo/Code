@@ -48,6 +48,8 @@
         "unordered_set": "cpp",
         "map": "cpp",
         "list": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "stack": "cpp",
+        "cinttypes": "cpp"
     }
 }

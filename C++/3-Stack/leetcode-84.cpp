@@ -17,5 +17,6 @@ int largestRectangleArea(std::vector<int>& heights)
         }
         st.push(i);
     }
+    heights.pop_back();
     return result;
 }

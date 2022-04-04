@@ -4,17 +4,15 @@
 
 int max_area(std::vector<int>& height)
 {
-    int left = 0;
-    int right = height.size() - 1;
-    int water = 0;
-    int temp_h = 0;
+    int left = 0, right = height.size() - 1, water = 0;
     while (left < right) {
-        int temp_h = std::min(height[left], height[right]);
-        water = std::max(water, (right - left) * temp_h);
-        while (height[left] <= temp_h && left < right)
+        int h = std::min(height[left], height[right]);
+        water = std::max(water, (right - left) * h);
+        while (height[left] <= h && left < right)
             ++left;
-        while (height[right] <= temp_h && left < right)
+        while (height[right] <= h && left < right)
             --right;
     } 
     return water;
 }
+

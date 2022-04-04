@@ -1,0 +1,56 @@
+//https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/description/
+
+#include <vector>
+
+class Node {
+public:
+    int val;
+    std::vector<Node*> children;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+    }
+
+    Node(int _val, std::vector<Node*> _children) {
+        val = _val;
+        children = _children;
+    }
+};
+
+void helper(Node* root, std::vector<int>& vec)
+{
+    if (root == nullptr)
+        return;
+    vec.emplace_back(root->val);
+    for (auto x : root->children)
+        helper(x, vec);
+}
+
+std::vector<int> preorder(Node* root) 
+{
+    std::vector<int> result;
+    helper(root, result);
+    return result;
+}
+
+#include<vector>
+#include<stack>
+
+std::vector<int> preorder(Node* root)
+{
+    if (root == nullptr)
+        return {};
+    std::vector<int> result;
+    std::stack<Node*> stk;
+    stk.emplace(root);
+    while (!stk.empty()) {
+        auto x = stk.top();
+        stk.pop();
+        result.emplace_back(x->val);
+        for (int i = x->children.size() - 1; i > -1; --i)
+            stk.emplace(x->children[i]);
+    }
+    return result;
+}

@@ -7,7 +7,7 @@ int trap(std::vector<int>& height)
 {
     if (height.empty())
         return 0;
-    int ans = 0;
+    int answer = 0;
     int size = height.size();
     std::vector<int> left_max(size), right_max(size);
     left_max[0] = height[0];
@@ -19,9 +19,10 @@ int trap(std::vector<int>& height)
         right_max[i] = std::max(height[i], right_max[i + 1]);
 
     for (int i = 1; i < size - 1; ++i)
-        ans += std::min(left_max[i], right_max[i]) - height[i];
+        answer += std::min(left_max[i], right_max[i]) - height[i];
+    return answer;
 }
-
+#include<vector>
 #include<stack>
 
 int trap(std::vector<int>& height)
@@ -40,7 +41,10 @@ int trap(std::vector<int>& height)
         }
         st.push(cur++);
     }
+    return ans;
 }
+
+#include<vector>
 
 int trap(std::vector<int>& height)
 {

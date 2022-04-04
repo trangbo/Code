@@ -8,8 +8,7 @@ int remove_duplicates(std::vector<int>& nums)
         return nums.size();
     auto slow = nums.begin();
     auto fast = nums.cbegin() + 1;
-    auto end = nums.cend();
-    while (fast != end) {
+    while (fast != nums.cend()) {
         if (*slow == *fast)
             ++fast;
         else

@@ -10,19 +10,6 @@ struct List_node {
 
 bool has_cycle(List_node* head)
 {
-    List_node* x = head;
-    int pos = -1;
-    while (x) {
-        ++pos;
-        x = x->next;
-        if (pos == 9999)
-            return (x) ? true : false;
-    }
-    return false; 
-}
-
-bool has_cycle(List_node* head)
-{
     if (head == nullptr || head->next == nullptr)
         return false;
     List_node* slow = head;

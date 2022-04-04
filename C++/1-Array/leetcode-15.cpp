@@ -5,36 +5,37 @@
 
 std::vector<std::vector<int>> three_sum(std::vector<int>& nums)
 {
-    std::vector<std::vector<int>> result;
-    int length = nums.size();
-    if (length < 3)
-        return result;
+    if (nums.size() < 3)
+        return {};
     std::sort(nums.begin(), nums.end());
-    for (auto it = nums.begin(); it != nums.end() - 2; ++it) {
+    std::vector<std::vector<int>> result;
+    for (auto it = nums.cbegin(); it != nums.cend() - 2; ++it) {
         if (*it > 0)
             break;
-        if (it == nums.begin() || *it != *(it - 1)) {
-            auto l = it + 1;
-            auto r = nums.end() - 1;
-            while (l < r) {
-                if (*l + *r < -*it)
-                    ++l;
-                else if (*l + *r > -*it)
-                    --r;
+        if (it == nums.cbegin() || *it != *(it - 1)) {
+            auto left = it + 1;
+            auto right = nums.cend() - 1;
+            while (left < right) {
+                if (*left + *right < -*it)
+                    ++left;
+                else if (*left + *right > -*it)
+                    --right;
                 else {
-                    result.push_back({*it, *l, *r});
-                    while (l < r && *l == *(l + 1))
-                        ++l;
-                    while (l < r && *r == *(r - 1))
-                        --r;
-                    ++l;
-                    --r;
+                    result.push_back({*it, *left, *right});
+                    while (left < right && *left == *(left + 1))
+                        ++left;
+                    while (left < right && *right == *(right - 1))
+                        --right;
+                    ++left;
+                    --right;
                 }
             }
         }
     }
     return result;
 }
+
+
 /*   
     for (int i = 0; i < length - 2; ++i) {
         if (nums[i] > 0)

@@ -12,6 +12,16 @@ List_node* swap_pairs(List_node* head)
 {
     if (head == nullptr || head->next == nullptr)
         return head;
+    List_node* n = head->next;
+    head->next = swap_pairs(n->next);
+    n->next = head;
+    return n;
+}
+
+List_node* swap_pairs(List_node* head) 
+{
+    if (head == nullptr || head->next == nullptr)
+        return head;
     List_node* x = head;
     List_node* y = head->next;
     head = head->next;
@@ -29,12 +39,3 @@ List_node* swap_pairs(List_node* head)
     return head; 
 }
 
-List_node* swap_pairs(List_node* head) 
-{
-    if (head == nullptr || head->next == nullptr)
-        return head;
-    List_node* n = head->next;
-    head->next = swap_pairs(n->next);
-    n->next = head;
-    return n;
-}
